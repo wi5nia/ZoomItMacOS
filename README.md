@@ -9,6 +9,9 @@
 >
 > A lot of things are still not working and may never do.
 
+> [!Caution]
+> For now only basic zoom works and the **ESC** button does not work so you have to close the app to get out of the zoom funtionality.
+
 # ZoomIt for macOS
 
 [![Swift](https://img.shields.io/badge/Swift-5.9+-orange.svg)](https://swift.org)

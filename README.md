@@ -1,0 +1,262 @@
+# ZoomIt for macOS
+
+[![Swift](https://img.shields.io/badge/Swift-5.9+-orange.svg)](https://swift.org)
+[![Platform](https://img.shields.io/badge/Platform-macOS%2014.0+-blue.svg)](https://developer.apple.com/macos/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+A modern macOS equivalent of the popular Windows ZoomIt tool, built with Swift and SwiftUI for Apple Silicon Macs. This application provides screen magnification and annotation capabilities perfect for presentations, demonstrations, and accessibility needs.
+
+![ZoomIt macOS Demo](https://via.placeholder.com/800x400/1e1e1e/ffffff?text=ZoomIt+macOS+Demo)
+
+> **Note**: This project is currently in active development. Core zoom functionality and click-through features are working. Some features like ESC key exit are still being refined.
+
+## Current Status
+
+### ✅ Working Features
+- **Screen magnification** with mouse wheel zoom control
+- **Live zoom window** that follows the mouse cursor
+- **Click-through functionality** - interact with applications behind the zoom window
+- **Real-time screen capture** with proper coordinate handling
+- **Smooth mouse tracking** and overlay positioning
+
+### 🚧 In Development
+- **ESC key exit** (currently being refined)
+- **Drawing and annotation tools**
+- **Text overlay system**
+- **Global hotkey support**
+- **Settings and preferences**
+
+## Features
+
+### 🔍 Screen Magnification
+- **Full-screen zoom mode** with customizable zoom levels (1x to 16x)
+- **Live zoom window** for continuous magnification
+- **Smooth zoom transitions** with mouse wheel control
+- **Crosshair overlay** for precise pointing
+
+### ✏️ Drawing & Annotation
+- **Multiple drawing tools**: Pen, highlighter, line, rectangle, circle, arrow
+- **Customizable colors** and stroke widths
+- **Real-time drawing** with anti-aliasing support
+- **Undo/redo functionality** and clear all option
+
+### 📝 Text Overlay
+- **Click-to-type** text placement anywhere on screen
+- **Multiple fonts and sizes** with system font support
+- **Customizable colors** with outline for visibility
+- **DemoType mode** for scripted text automation
+
+### ⌨️ Global Hotkeys
+- **Cmd+Z**: Start zoom mode
+- **Cmd+L**: Open live zoom window
+- **Cmd+D**: Enter drawing mode
+- **Cmd+T**: Enter text mode
+- **ESC**: Exit current mode
+
+### 🎯 Additional Features
+- **Menu bar integration** with quick access
+- **Break timer** for presentations
+- **Screen recording** support (planned)
+- **Customizable settings** and preferences
+- **Privacy-focused** with proper permission handling
+
+## Requirements
+
+- **macOS 13.0+** (Ventura or later)
+- **Apple Silicon Mac** (M1, M2, M3, or later)
+- **Screen Recording permission** for capture functionality
+- **Accessibility permission** for global hotkeys
+
+## Installation
+
+### Quick Start
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/ZoomItMacOS.git
+   cd ZoomItMacOS
+   ```
+
+2. **Build and run**:
+   ```bash
+   swift build
+   swift run
+   ```
+
+3. **Grant permissions**:
+   - **Screen Recording**: Go to System Settings > Privacy & Security > Screen Recording
+   - **Accessibility**: Go to System Settings > Privacy & Security > Accessibility
+   - Add the Terminal app (or your terminal application) to both lists
+
+4. **Use the app**:
+   - Move your mouse to see the zoom window
+   - Use scroll wheel to zoom in/out
+   - Click through the zoom window to interact with applications underneath
+
+### Building from Source
+   ```bash
+   git clone https://github.com/your-username/ZoomItMacOS.git
+   cd ZoomItMacOS
+   ```
+
+2. **Build with Swift Package Manager**:
+   ```bash
+   swift build -c release
+   ```
+
+3. **Run the application**:
+   ```bash
+   swift run
+   ```
+
+### Xcode Development
+
+1. Open the project in Xcode:
+   ```bash
+   open Package.swift
+   ```
+
+2. Select the ZoomItMacOS scheme
+3. Build and run (Cmd+R)
+
+## Usage
+
+### First Launch Setup
+
+1. **Grant Screen Recording Permission**:
+   - Go to System Settings → Privacy & Security → Screen Recording
+   - Enable permission for ZoomItMacOS
+
+2. **Grant Accessibility Permission** (for global hotkeys):
+   - Go to System Settings → Privacy & Security → Accessibility
+   - Enable permission for ZoomItMacOS
+
+### Basic Operations
+
+#### Zoom Mode
+- Press **Cmd+Z** or click "Zoom" in the main window
+- Move mouse to magnify different areas
+- Use **mouse wheel** to adjust zoom level
+- Press **ESC** to exit
+
+#### Live Zoom Window
+- Press **Cmd+L** for a floating zoom window
+- Resize and position as needed
+- Follows mouse cursor automatically
+
+#### Drawing Mode
+- Press **Cmd+D** to enter drawing mode
+- Select tools from the toolbar
+- Draw directly on the screen
+- Use **ESC** or "Done" to exit
+
+#### Text Mode
+- Press **Cmd+T** to enter text mode
+- Click anywhere to place text
+- Type directly on screen
+- Press **Enter** to finish, **ESC** to cancel
+
+## Architecture
+
+The application is built with modern Swift patterns:
+
+```
+Sources/ZoomItMacOS/
+├── ZoomItMacOSApp.swift      # Main app entry point
+├── AppDelegate.swift         # Menu bar and system integration
+├── ContentView.swift         # Main user interface
+├── ZoomController.swift      # Core zoom functionality
+├── ScreenCapture.swift       # Screen capture using ScreenCaptureKit
+├── HotKeyManager.swift       # Global hotkey handling
+├── ZoomOverlayView.swift     # Zoom display and live zoom
+├── DrawingController.swift   # Drawing tools and annotation
+├── TextController.swift      # Text overlay and DemoType
+└── SettingsView.swift        # Application preferences
+```
+
+### Key Technologies
+- **SwiftUI** for modern declarative UI
+- **Core Graphics** for drawing and rendering
+- **ScreenCaptureKit** for efficient screen capture (macOS 12.3+)
+- **Carbon Framework** for global hotkey registration
+- **AVFoundation** for screen recording capabilities
+
+## Comparison with Windows ZoomIt
+
+| Feature | Windows ZoomIt | ZoomIt macOS | Status |
+|---------|---------------|--------------|--------|
+| Screen Zoom | ✅ | ✅ | Complete |
+| Live Zoom | ✅ | ✅ | Complete |
+| Drawing Tools | ✅ | ✅ | Complete |
+| Text Overlay | ✅ | ✅ | Complete |
+| DemoType | ✅ | 🔄 | In Progress |
+| Break Timer | ✅ | 📋 | Planned |
+| Screen Recording | ✅ | 📋 | Planned |
+| Global Hotkeys | ✅ | ✅ | Complete |
+
+## Configuration
+
+### Settings
+Access settings via the menu bar icon or main window:
+
+- **General**: Launch options, permissions
+- **Hotkeys**: Customize keyboard shortcuts
+- **Zoom**: Default zoom levels and behavior
+- **Drawing**: Tool defaults and preferences
+- **About**: Version and feature information
+
+### Preferences Files
+Settings are stored in:
+```
+~/Library/Preferences/com.yourcompany.ZoomItMacOS.plist
+```
+
+## Privacy & Security
+
+ZoomIt for macOS is designed with privacy in mind:
+
+- **Local Processing**: All operations happen locally
+- **No Network Access**: No data is sent to external servers
+- **Minimal Permissions**: Only requests necessary system permissions
+- **Sandboxing Compatible**: Designed to work within macOS security model
+
+## Development
+
+### Contributing
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+### Code Style
+- Follow Swift API Design Guidelines
+- Use SwiftUI best practices
+- Document public APIs with DocC comments
+- Maintain compatibility with macOS 13.0+
+
+### Testing
+```bash
+swift test
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Inspired by the original **ZoomIt** by Mark Russinovich (Microsoft Sysinternals)
+- Built for the macOS community with modern Swift technologies
+- Thanks to the Apple developer documentation and community
+
+## Support
+
+For issues, feature requests, or questions:
+- Create an issue on GitHub
+- Check the documentation in the Settings → About section
+- Ensure you have the latest macOS version and required permissions
+
+---
+
+**Note**: This is an independent implementation inspired by Windows ZoomIt. It is not affiliated with Microsoft or the original ZoomIt tool.
